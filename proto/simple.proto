@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package proto;
+
+// A simple service definition
+service Simple {
+  rpc Foo (FooRequest) returns (FooReply) {}
+  rpc Bar (BarRequest) returns (BarReply) {}
+}
+
+message FooRequest {
+  string name = 1;
+}
+
+message FooReply {
+  string message = 1;
+}
+
+message BarRequest {
+  string name = 1;
+}
+
+message BarReply {
+  string message = 1;
+}
