@@ -1,0 +1,12 @@
+steps:
+# Build //server:image with Bazel.
+# We use "run" to load the resulting image into the Docker daemon.
+- name: gcr.io/cloud-builders/bazel
+  args: ['run', '//server:image']
+
+# Give the loaded image the name where we want to push it.
+- name: gcr.io/cloud-builders/docker
+  args: ['tag', 'bazel/server:image', 'gcr.io/convoy-adapter/bazel-grpc:latest']
+
+# The resulting images to push to GCR.
+images: ['gcr.io/convoy-adapter/bazel-grpc:latest']
