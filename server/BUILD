@@ -1,6 +1,10 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@bazel_tools//tools/build_defs/docker:docker.bzl", "docker_build")
+load(
+    "@io_bazel_rules_docker//docker:docker.bzl",
+    "docker_build",
+    "docker_push",
+)
 
 # cc_library(
 #     name = "simple_lib",
@@ -23,4 +27,13 @@ docker_build(
     files = [":server"],
     entrypoint = ["/server"],
     ports = ["50051"],
+)
+
+docker_push(
+    name = "push",
+    image = ":image",
+    registry = "gcr.io",
+    repository = "convoy-adapter/bazel-grpc",
+    tag = "{BUILD_USER}",
+    stamp = True,
 )
