@@ -14,11 +14,12 @@ cc_binary(
     srcs = ["main.cc"],
     deps = ["//proto"],
     # Make the binary completely statically linked.
-    linkopts = ["-static"],
+    # linkopts = ["-static"],
 )
 
 docker_build(
     name = "image",
+    base = "@cc_base//image:image.tar",
     files = [":server"],
     entrypoint = ["/server"],
     ports = ["50051"],
