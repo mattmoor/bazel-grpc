@@ -28,8 +28,8 @@ cpp_proto_repositories()
 
 git_repository(
     name = "io_bazel_rules_docker",
-    remote = "https://github.com/bazelbuild/rules_docker.git",
-    commit = "c4a0cc523633d39de972acb712468c936406846d",
+    remote = "https://github.com/mattmoor/rules_docker.git",
+    commit = "5ee8f1b66309d6c59762900cf0b8b1b88224ecaf",
 )
 
 load(
@@ -44,3 +44,19 @@ docker_pull(
   repository = "distroless/cc",
   tag = "latest",
 )
+
+# ================================================================
+# Kubernetes support
+# ================================================================
+
+git_repository(
+    name = "io_bazel_rules_k8s",
+    remote = "https://github.com/mattmoor/rules_k8s.git",
+    commit = "b15a9492c5fda2eb16b96bb22a7d313565e14fba",
+)
+
+load(
+  "@io_bazel_rules_k8s//k8s:k8s.bzl",
+  "k8s_repositories",
+)
+k8s_repositories()

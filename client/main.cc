@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
   // that the channel isn't authenticated (use of
   // InsecureCredentials()).
   SimpleClient simple(
-      grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials()));
+      grpc::CreateChannel("35.188.51.93:50051", grpc::InsecureChannelCredentials()));
   std::string user("world");
 
   std::cout << "Foo(" << user << "): " << simple.Foo(user) << std::endl;
