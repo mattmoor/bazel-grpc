@@ -23,7 +23,7 @@ cc_binary(
 
 docker_build(
     name = "image",
-    base = "@cc_base//image:image.tar",
+    base = "@cc_base//image",
     files = [":server"],
     entrypoint = ["/server"],
     ports = ["50051"],
