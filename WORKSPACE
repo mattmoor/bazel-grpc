@@ -52,7 +52,7 @@ docker_pull(
 git_repository(
     name = "io_bazel_rules_k8s",
     remote = "https://github.com/mattmoor/rules_k8s.git",
-    commit = "2f0f71f539996b80daf1ed0f00c13259627dc27d",
+    commit = "a3e68dae77514bb96347bfd002560639c10f547e",
 )
 
 load(
