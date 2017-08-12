@@ -52,11 +52,19 @@ docker_pull(
 git_repository(
     name = "io_bazel_rules_k8s",
     remote = "https://github.com/mattmoor/rules_k8s.git",
-    commit = "a3e68dae77514bb96347bfd002560639c10f547e",
+    commit = "bc195c7a39fabe041e6930bea6a6c381c3a9d409",
 )
 
 load(
   "@io_bazel_rules_k8s//k8s:k8s.bzl",
-  "k8s_repositories",
+  "k8s_repositories", "k8s_defaults"
 )
 k8s_repositories()
+
+# Generate a k8s_deploy alias that takes deployment objects and
+# deploys them to the named cluster.
+k8s_defaults(
+  name = "k8s_deploy",
+  kind = "deployment",
+  cluster = "gke_convoy-adapter_us-central1-f_bazel-grpc",
+)

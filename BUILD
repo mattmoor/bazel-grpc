@@ -1,9 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-load(
-  "@io_bazel_rules_k8s//k8s:k8s.bzl",
-  "k8s_deploy",
-)
+load("@k8s_deploy//:defaults.bzl", "k8s_deploy")
 
 k8s_deploy(
   name = "dev",
