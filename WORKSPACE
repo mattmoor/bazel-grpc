@@ -28,8 +28,8 @@ cpp_proto_repositories()
 
 git_repository(
     name = "io_bazel_rules_docker",
-    remote = "https://github.com/mattmoor/rules_docker.git",
-    commit = "5ee8f1b66309d6c59762900cf0b8b1b88224ecaf",
+    remote = "https://github.com/bazelbuild/rules_docker.git",
+    commit = "27b494ceefedd35b0ae72100860997f7ab1bf714",
 )
 
 load(
@@ -38,12 +38,13 @@ load(
 )
 docker_repositories()
 
-docker_pull(
-  name = "cc_base",
-  registry = "gcr.io",
-  repository = "distroless/cc",
-  tag = "latest",
+# Have the cc_image dependencies for testing.
+load(
+    "@io_bazel_rules_docker//docker/contrib/cc:image.bzl",
+    _cc_image_repos = "repositories",
 )
+
+_cc_image_repos()
 
 # ================================================================
 # Kubernetes support

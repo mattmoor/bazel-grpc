@@ -10,7 +10,7 @@ k8s_deploy(
       "replicas": "1",
   },
   images = {
-    "gcr.io/convoy-adapter/bazel-grpc:{BUILD_USER}": "//server:image"
+    "gcr.io/convoy-adapter/bazel-grpc:{BUILD_USER}": "//server"
   },
 )
 
