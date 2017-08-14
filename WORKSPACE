@@ -34,11 +34,11 @@ git_repository(
 
 load(
   "@io_bazel_rules_docker//docker:docker.bzl",
-  "docker_repositories", "docker_pull"
+  "docker_repositories",
 )
 docker_repositories()
 
-# Have the cc_image dependencies for testing.
+# We use cc_image to build our sample service
 load(
     "@io_bazel_rules_docker//docker/contrib/cc:image.bzl",
     _cc_image_repos = "repositories",
