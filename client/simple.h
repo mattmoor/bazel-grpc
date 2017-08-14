@@ -13,8 +13,6 @@ using grpc::ClientContext;
 using grpc::Status;
 using proto::FooRequest;
 using proto::FooReply;
-using proto::BarRequest;
-using proto::BarReply;
 using proto::Simple;
 
 class SimpleClient {
@@ -22,8 +20,6 @@ class SimpleClient {
   SimpleClient(std::shared_ptr<Channel> channel);
 
   std::string Foo(const std::string& user);
-
-  std::string Bar(const std::string& user);
 
  private:
   std::unique_ptr<Simple::Stub> stub_;

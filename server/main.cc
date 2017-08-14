@@ -46,8 +46,6 @@ using grpc::ServerContext;
 using grpc::Status;
 using proto::FooRequest;
 using proto::FooReply;
-using proto::BarRequest;
-using proto::BarReply;
 using proto::Simple;
 
 // Logic and data behind the server's behavior.
@@ -56,13 +54,6 @@ class SimpleServiceImpl final : public Simple::Service {
   Status Foo(ServerContext* context, const FooRequest* request,
 	     FooReply* reply) override {
     std::string prefix("Foo ");
-    reply->set_message(prefix + request->name());
-    return Status::OK;
-  }
-
-  Status Bar(ServerContext* context, const BarRequest* request,
-	     BarReply* reply) override {
-    std::string prefix("Bar ");
     reply->set_message(prefix + request->name());
     return Status::OK;
   }

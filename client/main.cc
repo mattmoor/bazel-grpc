@@ -46,7 +46,6 @@ int main(int argc, char** argv) {
   std::string user("world");
 
   std::cout << "Foo(" << user << "): " << simple.Foo(user) << std::endl;
-  std::cout << "Bar(" << user << "): " << simple.Bar(user) << std::endl;
 
   return 0;
 }
